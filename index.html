@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Case Study: MobileNet & Google Lens</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.js"></script>
+
+  <script src="https://unpkg.com/ml5@0.4.3/dist/ml5.min.js"></script>
+  <script src ="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/addons/p5.sound.min.js"></script>
+  <script src ="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/addons/p5.sound.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+    <center>
+        <div id = 'header'>
+        <h3>Case Study: MobileNet and Google Lens</h3>
+        <h3>Google Lens <img src = "logo.png.png" width = '200' height = '100'></h3>
+        <h3>vs</h3>
+        <h3>MobileNet</h3>
+    </div> </center>
+    <div class = "bg-success t1">
+        <h4>1. Test Image</h4>
+        <div class = "col-lg-3 col-md-3 col-sm-3 col-xs-12">
+            <img src = "IMG-1395.jpg" width = '100%' height = '250'>
+        </div>
+        
+        <br>
+        <div class = "col-lg-8 col-md-8 col-sm-8 col-xs-12">
+        <label class = "btn btn-success">Output on GOOGLE LENS - Zebra Gel Retractable Pen<span id = "GLPen"></span></label>
+        <br> 
+        <br>
+        <label class = "btn btn-success">Output on MOBILENET - Ballpoint pen<span id = "OMPen"></span></label>
+        <br>
+        <br>
+        <label class = "btn btn-success">Result - GOOGLE LENS is more accurate<span id = "r1"></span></label>
+    </div> 
+    </div>
+    <br>
+    <div class = "bg-success t1">
+        <h4>2. Test Image</h4>
+        <div class = "col-lg-3 col-md-3 col-sm-3 col-xs-12">
+            <img src = "IMG-1396.jpg" width = '100%' height = '250'>
+        </div>
+        
+        <br>
+        <div class = "col-lg-8 col-md-8 col-sm-8 col-xs-12">
+        <label class = "btn btn-success">Output on GOOGLE LENS - Gaming mouse<span id = "GLMouse"></span></label>
+        <br> 
+        <br>
+        <label class = "btn btn-success">Output on MOBILENET - Mouse<span id = "OMMouse"></span></label>
+        <br>
+        <br>
+        <label class = "btn btn-success">Result - GOOGLE LENS is more accurate<span id = "r2"></span></label>
+    </div> 
+    </div>
+    <br>
+    <div class = "bg-success t1">
+        <h4>3. Test Image</h4>
+        <div class = "col-lg-3 col-md-3 col-sm-3 col-xs-12">
+            <img src = "IMG-1397.jpg" width = '100%' height = '250'>
+        </div>
+        
+        <br>
+        <div class = "col-lg-8 col-md-8 col-sm-8 col-xs-12">
+        <label class = "btn btn-success">Output on GOOGLE LENS - Push Pop Candy<span id = "GLPop"></span></label>
+        <br> 
+        <br>
+        <label class = "btn btn-success">Output on MOBILENET - Guillotin<span id = "OMPop"></span></label>
+        <br>
+        <br>
+        <label class = "btn btn-success">Result - GOOGLE LENS is more accurate<span id = "r3"></span></label>
+    </div> 
+    </div>
+    <br>
+    <div class = "bg-success t1">
+        <h4>4. Test Image</h4>
+        <div class = "col-lg-3 col-md-3 col-sm-3 col-xs-12">
+            <img src = "IMG-1398.jpg" width = '100%' height = '250'>
+        </div>
+        
+        <br>
+        <div class = "col-lg-8 col-md-8 col-sm-8 col-xs-12">
+        <label class = "btn btn-success">Output on GOOGLE LENS - Diamond Ruby<span id = "GLCandy"></span></label>
+        <br> 
+        <br>
+        <label class = "btn btn-success">Output on MOBILENET - Stage<span id = "OMCandy"></span></label>
+        <br>
+        <br>
+        <label class = "btn btn-success">Result - None are accurate<span id = "r4"></span></label>
+    </div> 
+    </div>
+    <br>
+    <div class = "bg-success t1">
+        <h4>5. Test Image</h4>
+        <div class = "col-lg-3 col-md-3 col-sm-3 col-xs-12">
+            <img src = "IMG-1399.jpg" width = '100%' height = '250'>
+        </div>
+        
+        <br>
+        <div class = "col-lg-8 col-md-8 col-sm-8 col-xs-12">
+        <label class = "btn btn-success">Output on GOOGLE LENS - Cushion<span id = "GLPillow"></span></label>
+        <br> 
+        <br>
+        <label class = "btn btn-success">Output on MOBILENET - Fur coat<span id = "OMPillow"></span></label>
+        <br>
+        <br>
+        <label class = "btn btn-success">Result - GOOGLE LENS is more accurate<span id = "r5"></span></label>
+    </div> 
+    </div>
+    <br>
+    <div class = "bg-success t1">
+        <h4>6. Test Image</h4>
+        <div class = "col-lg-3 col-md-3 col-sm-3 col-xs-12">
+            <img src = "IMG-1400.jpg" width = '100%' height = '250'>
+        </div>
+        
+        <br>
+        <div class = "col-lg-8 col-md-8 col-sm-8 col-xs-12">
+        <label class = "btn btn-success">Output on GOOGLE LENS - Photo frame<span id = "GLBook"></span></label>
+        <br> 
+        <br>
+        <label class = "btn btn-success">Output on MOBILENET - Packet<span id = "OMBook"></span></label>
+        <br>
+        <br>
+        <label class = "btn btn-success">Result - None are accurate<span id = "r6"></span></label>
+    </div> 
+    </div>
+    <br>
+    <div class = "bg-success t1">
+        <h4>7. Test Image</h4>
+        <div class = "col-lg-3 col-md-3 col-sm-3 col-xs-12">
+            <img src = "IMG-1401.jpg" width = '100%' height = '250'>
+        </div>
+        
+        <br>
+        <div class = "col-lg-8 col-md-8 col-sm-8 col-xs-12">
+        <label class = "btn btn-success">Output on GOOGLE LENS - Hair scrunchie<span id = "GLTie"></span></label>
+        <br> 
+        <br>
+        <label class = "btn btn-success">Output on MOBILENET - Knot<span id = "OMTie"></span></label>
+        <br>
+        <br>
+        <label class = "btn btn-success">Result - GOOGLE LENS is more accurate<span id = "r7"></span></label>
+    </div> 
+    </div>
+    <br>
+    <div class = "bg-success t1">
+        <h4>8. Test Image</h4>
+        <div class = "col-lg-3 col-md-3 col-sm-3 col-xs-12">
+            <img src = "IMG-1402.jpg" width = '100%' height = '250'>
+        </div>
+        
+        <br>
+        <div class = "col-lg-8 col-md-8 col-sm-8 col-xs-12">
+        <label class = "btn btn-success">Output on GOOGLE LENS - Remote control<span id = "GLRemote"></span></label>
+        <br> 
+        <br>
+        <label class = "btn btn-success">Output on MOBILENET - Remote control<span id = "OMRemote"></span></label>
+        <br>
+        <br>
+        <label class = "btn btn-success">Result - Both are as accurate<span id = "r8"></span></label>
+    </div> 
+    </div>
+    <br>
+    <div class = "bg-success t1">
+        <h4>9. Test Image</h4>
+        <div class = "col-lg-3 col-md-3 col-sm-3 col-xs-12">
+            <img src = "IMG-1403.jpg" width = '100%' height = '250'>
+        </div>
+        
+        <br>
+        <div class = "col-lg-8 col-md-8 col-sm-8 col-xs-12">
+        <label class = "btn btn-success">Output on GOOGLE LENS - Vinyl record<span id = "GLCD"></span></label>
+        <br> 
+        <br>
+        <label class = "btn btn-success">Output on MOBILENET - Cassette<span id = "OMCD"></span></label>
+        <br>
+        <br>
+        <label class = "btn btn-success">Result - Both are as accurate<span id = "r9"></span></label>
+    </div> 
+    </div>
+    <br>
+    <div class = "bg-success t1">
+        <h4>10. Test Image</h4>
+        <div class = "col-lg-3 col-md-3 col-sm-3 col-xs-12">
+            <img src = "IMG-1404.jpg" width = '100%' height = '250'>
+        </div>
+        
+        <br>
+        <div class = "col-lg-8 col-md-8 col-sm-8 col-xs-12">
+        <label class = "btn btn-success">Output on GOOGLE LENS - Toothbrush<span id = "GLStylo"></span></label>
+        <br> 
+        <br>
+        <label class = "btn btn-success">Output on MOBILENET - Drumstick<span id = "OMStylo"></span></label>
+        <br>
+        <br>
+        <label class = "btn btn-success">Result - None are accurate<span id = "r10"></span></label>
+    </div> 
+    </div>
+    <br>
+    <div>
+        <h3 id = "finalResult"> According to my case study, out of the 10 images that I have tested, 5 pictures gave accurate results when tested on Google Lens, 2 images gave same results on both, and 3 of them do not give any accurate answer, while 0 images are shown more accurate through MobileNet. Hence, according to me, Google Lens is more accurate.</h3>
+    </div>
+    <div id = "footer">
+        <h4>Developed by: Aathini 2022</h4>
+    </div>
+    <script src = "main.js"></script>
+</body>
